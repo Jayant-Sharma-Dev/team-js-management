@@ -13,7 +13,6 @@ export async function GET() {
             { status: 503 }
         );
     }
-
     return NextResponse.json(
         {
             status: "ok",
