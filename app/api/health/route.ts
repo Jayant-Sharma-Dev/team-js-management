@@ -1,23 +1,23 @@
 import { checkDatabaseConnection } from "@/app/lib/db";
 import { NextResponse } from "next/server";
-
 export async function GET() {
     const isConnected = await checkDatabaseConnection();
-
-    if (!isConnected) {
+    if(!isConnected){
         return NextResponse.json(
             {
                 status: "error",
-                message: "Database connection failed",
-            },
-            { status: 503 }
-        );
+                message: "database connection failed",
+            },{
+                status: 503
+            }
+        )
     }
-    return NextResponse.json(
-        {
-            status: "ok",
-            message: "Database connection successful",
-        },
-        { status: 200 },
-    );
+     return NextResponse.json(
+            {
+                status: "ok",
+                message: "database connected successfully",
+            },{
+                status: 200
+            }
+        )
 }
